@@ -7,12 +7,12 @@ module RedmineCkeditor
 
       base.class_eval do
         unloadable
-        alias_method_chain :reply, :ckeditor
+        alias_method_chain :new, :ckeditor
       end
     end
 
     module InstanceMethods
-      def reply_with_ckeditor
+      def new_with_ckeditor
         unless Setting.text_formatting == "CKEditor"
           reply_without_ckeditor
           return
